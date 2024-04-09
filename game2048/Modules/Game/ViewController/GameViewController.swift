@@ -144,16 +144,16 @@ private extension GameViewController {
     func createCells() {
         let cellSize = (gameBoard.frame.width - 2 * Constants.spacing) / CGFloat(Constants.cellsInRow)
 
-        for posY in 0..<Constants.cellsInRow {
+        for column in .zero..<Constants.cellsInRow {
             var rowViews = [CellView]()
-            for posX in 0..<Constants.cellsInRow {
-                let horizontalPosition = posX == 0
+            for row in 0..<Constants.cellsInRow {
+                let horizontalPosition = row == .zero
                 ? Constants.spacing
-                : CGFloat(posX) * cellSize + Constants.spacing
+                : CGFloat(row) * cellSize + Constants.spacing
                 
-                let verticalPosition = posY == 0
+                let verticalPosition = column == .zero
                 ? Constants.spacing
-                : CGFloat(posY) * cellSize + Constants.spacing
+                : CGFloat(column) * cellSize + Constants.spacing
                 
                 let cell = createCell(CGRect(
                     x: horizontalPosition,
@@ -163,7 +163,6 @@ private extension GameViewController {
                 ))
                 rowViews.append(cell)
                 gameBoard.addSubview(cell)
-                viewModel?.didEmptyCellAdded(posY: verticalPosition, posX: horizontalPosition)
             }
             cells.append(rowViews)
         }
@@ -207,9 +206,9 @@ private extension GameViewController {
         viewModel?.$board
             .sink { [unowned self] board in
                 guard !cells.isEmpty else { return }
-                for yPos in 0..<board.count {
-                    for xPos in 0..<board.count {
-                        cells[yPos][xPos].bind(model: board[yPos][xPos])
+                for column in .zero..<board.count {
+                    for row in .zero..<board.count {
+                        cells[column][row].bind(model: board[column][row])
                     }
                 }
             }

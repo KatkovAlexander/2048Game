@@ -19,7 +19,6 @@
 		112002822BC2FCB5007C7FAA /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112002812BC2FCB5007C7FAA /* GameViewModel.swift */; };
 		112002852BC30BD0007C7FAA /* Collection+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112002842BC30BD0007C7FAA /* Collection+extension.swift */; };
 		112002892BC3CF5E007C7FAA /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112002882BC3CF5E007C7FAA /* Color.swift */; };
-		1120028C2BC42BF2007C7FAA /* PointModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1120028B2BC42BF2007C7FAA /* PointModel.swift */; };
 		1193E9782BC2B923006DBD07 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1193E9772BC2B923006DBD07 /* AppDelegate.swift */; };
 		1193E97A2BC2B923006DBD07 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1193E9792BC2B923006DBD07 /* SceneDelegate.swift */; };
 		1193E9812BC2B924006DBD07 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1193E9802BC2B924006DBD07 /* Assets.xcassets */; };
@@ -39,7 +38,6 @@
 		112002812BC2FCB5007C7FAA /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		112002842BC30BD0007C7FAA /* Collection+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+extension.swift"; sourceTree = "<group>"; };
 		112002882BC3CF5E007C7FAA /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
-		1120028B2BC42BF2007C7FAA /* PointModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointModel.swift; sourceTree = "<group>"; };
 		1193E9742BC2B923006DBD07 /* game2048.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = game2048.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1193E9772BC2B923006DBD07 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1193E9792BC2B923006DBD07 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -111,7 +109,6 @@
 			children = (
 				1120027C2BC2F79B007C7FAA /* CellModel.swift */,
 				1120027E2BC2FB08007C7FAA /* SwipeDirectionType.swift */,
-				1120028B2BC42BF2007C7FAA /* PointModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -264,7 +261,6 @@
 				1120027F2BC2FB08007C7FAA /* SwipeDirectionType.swift in Sources */,
 				112002822BC2FCB5007C7FAA /* GameViewModel.swift in Sources */,
 				1120027A2BC2CB20007C7FAA /* CellView.swift in Sources */,
-				1120028C2BC42BF2007C7FAA /* PointModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

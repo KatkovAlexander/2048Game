@@ -16,7 +16,7 @@ final class GameViewModel {
     }
     
     @Published var isGameOver = true
-    @Published var yourScore = 0
+    @Published var yourScore: Int = .zero
     @Published var board = [[CellModel]]()
     
     
@@ -28,23 +28,19 @@ extension GameViewModel {
     
     func startGame() {
         board = Array(
-            repeating: Array(repeating: CellModel(number: 0), count: Constants.cellsInRow),
+            repeating: Array(repeating: CellModel(number: .zero), count: Constants.cellsInRow),
             count: Constants.cellsInRow
         )
         
         guard let updatedBoard = board.generateNumber()?.generateNumber()
         else { return }
         isGameOver = false
-        yourScore = 0
+        yourScore = .zero
         board = updatedBoard
     }
     
     func didSwiped(direction: SwipeDirectionType) {
         updateBoard(direction)
-    }
-    
-    func didEmptyCellAdded(posY: CGFloat, posX: CGFloat) {
-        
     }
 }
 
@@ -61,19 +57,22 @@ private extension GameViewModel {
         
         switch direction {
             case .up, .down:
-                for column in 0..<updatedBoard.count {
+                for row in .zero..<updatedBoard.count {
                     let updateRow = updateRow(
-                        board.map { $0[column] },
+                        board.map { $0[row] },
                         needReverse: direction == .down
                     )
                     
-                    for index in 0..<updatedBoard.count {
-                        updatedBoard[index][column] = updateRow[index]
+                    for index in .zero..<updatedBoard.count {
+                        updatedBoard[index][row] = updateRow[index]
                     }
                 }
             case .left, .right:
-                for row in 0..<updatedBoard.count {
-                    updatedBoard[row] = updateRow(updatedBoard[row], needReverse: direction == .right)
+                for column in .zero..<updatedBoard.count {
+                    updatedBoard[column] = updateRow(
+                        updatedBoard[column],
+                        needReverse: direction == .right
+                    )
                 }
         }
     
