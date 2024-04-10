@@ -8,7 +8,7 @@
 import UIKit
 
 enum CellType: Int {
-    case nothing
+    case empty
     case updated
     case new
 }
@@ -17,7 +17,7 @@ struct CellModel: Equatable {
     let type: CellType
     let number: Int
     
-    init(type: CellType = .nothing, number: Int) {
+    init(type: CellType = .empty, number: Int) {
         self.type = type
         self.number = number
     }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		111770B62BC6E4DD00FB4BDB /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111770B52BC6E4DD00FB4BDB /* AppConstants.swift */; };
 		112002692BC2BC9E007C7FAA /* AppInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112002682BC2BC9E007C7FAA /* AppInitializer.swift */; };
 		1120026B2BC2BCB7007C7FAA /* GlobalRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1120026A2BC2BCB7007C7FAA /* GlobalRouter.swift */; };
 		1120026F2BC2BDEF007C7FAA /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1120026E2BC2BDEF007C7FAA /* GameViewController.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		111770B52BC6E4DD00FB4BDB /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		112002682BC2BC9E007C7FAA /* AppInitializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInitializer.swift; sourceTree = "<group>"; };
 		1120026A2BC2BCB7007C7FAA /* GlobalRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalRouter.swift; sourceTree = "<group>"; };
 		1120026E2BC2BDEF007C7FAA /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -73,6 +75,8 @@
 			children = (
 				112002682BC2BC9E007C7FAA /* AppInitializer.swift */,
 				1120026A2BC2BCB7007C7FAA /* GlobalRouter.swift */,
+				112002882BC3CF5E007C7FAA /* Color.swift */,
+				111770B52BC6E4DD00FB4BDB /* AppConstants.swift */,
 			);
 			path = ServiceLayer;
 			sourceTree = "<group>";
@@ -164,7 +168,6 @@
 				1193E9802BC2B924006DBD07 /* Assets.xcassets */,
 				1193E9822BC2B924006DBD07 /* LaunchScreen.storyboard */,
 				1193E9852BC2B924006DBD07 /* Info.plist */,
-				112002882BC3CF5E007C7FAA /* Color.swift */,
 			);
 			path = "Supporting+Files";
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 				1120026B2BC2BCB7007C7FAA /* GlobalRouter.swift in Sources */,
 				112002852BC30BD0007C7FAA /* Collection+extension.swift in Sources */,
 				1120027F2BC2FB08007C7FAA /* SwipeDirectionType.swift in Sources */,
+				111770B62BC6E4DD00FB4BDB /* AppConstants.swift in Sources */,
 				112002822BC2FCB5007C7FAA /* GameViewModel.swift in Sources */,
 				1120027A2BC2CB20007C7FAA /* CellView.swift in Sources */,
 			);

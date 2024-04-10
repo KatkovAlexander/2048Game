@@ -15,29 +15,28 @@ final class GameViewController: UIViewController {
     // MARK: Constants
     
     private enum Constants {
-        static let cornerRadius = 10.0
-        static let cellsInRow = 4
         static let spacing = 8.0
+        static let numberOfTouchToSwipe = 1
     }
     
     // MARK: Outlets
     
     @IBOutlet weak var gameBoard: UIView! {
         didSet {
-            gameBoard.layer.cornerRadius = Constants.cornerRadius
+            gameBoard.layer.cornerRadius = AppConstants.cornerRadius
         }
     }
     
     @IBOutlet weak var gameOverView: UIView! {
         didSet {
             gameOverView.isHidden = true
-            gameOverView.layer.cornerRadius = Constants.cornerRadius
+            gameOverView.layer.cornerRadius = AppConstants.cornerRadius
         }
     }
     
     @IBOutlet weak var yourScoreView: UIView! {
         didSet {
-            yourScoreView.layer.cornerRadius = Constants.cornerRadius
+            yourScoreView.layer.cornerRadius = AppConstants.cornerRadius
         }
     }
     
@@ -45,7 +44,7 @@ final class GameViewController: UIViewController {
     
     @IBOutlet weak var restartButton: UIButton! {
         didSet {
-            restartButton.layer.cornerRadius = Constants.cornerRadius
+            restartButton.layer.cornerRadius = AppConstants.cornerRadius
         }
     }
     
@@ -88,22 +87,18 @@ private extension GameViewController {
     
     func swipeUp() {
         viewModel?.didSwiped(direction: .up)
-        animate(.up)
     }
     
     func swipeDown() {
         viewModel?.didSwiped(direction: .down)
-        animate(.down)
     }
     
     func swipeLeft() {
         viewModel?.didSwiped(direction: .left)
-        animate(.left)
     }
     
     func swipeRight() {
         viewModel?.didSwiped(direction: .right)
-        animate(.right)
     }
 }
 
@@ -115,38 +110,38 @@ private extension GameViewController {
         let upSwipe = UISwipeGestureRecognizer(
             target: self, action: #selector(swipeUp)
         )
-        upSwipe.numberOfTouchesRequired = 1
+        upSwipe.numberOfTouchesRequired = Constants.numberOfTouchToSwipe
         upSwipe.direction = UISwipeGestureRecognizer.Direction.up
         view.addGestureRecognizer(upSwipe)
         
         let downSwipe = UISwipeGestureRecognizer(
             target: self, action: #selector(swipeDown)
         )
-        downSwipe.numberOfTouchesRequired = 1
+        downSwipe.numberOfTouchesRequired = Constants.numberOfTouchToSwipe
         downSwipe.direction = UISwipeGestureRecognizer.Direction.down
         view.addGestureRecognizer(downSwipe)
         
         let leftSwipe = UISwipeGestureRecognizer(
             target: self, action: #selector(swipeLeft)
         )
-        leftSwipe.numberOfTouchesRequired = 1
+        leftSwipe.numberOfTouchesRequired = Constants.numberOfTouchToSwipe
         leftSwipe.direction = UISwipeGestureRecognizer.Direction.left
         view.addGestureRecognizer(leftSwipe)
         
         let rightSwipe = UISwipeGestureRecognizer(
             target: self, action: #selector(swipeRight)
         )
-        rightSwipe.numberOfTouchesRequired = 1
+        rightSwipe.numberOfTouchesRequired = Constants.numberOfTouchToSwipe
         rightSwipe.direction = UISwipeGestureRecognizer.Direction.right
         view.addGestureRecognizer(rightSwipe)
     }
     
     func createCells() {
-        let cellSize = (gameBoard.frame.width - 2 * Constants.spacing) / CGFloat(Constants.cellsInRow)
+        let cellSize = (gameBoard.frame.width - 2 * Constants.spacing) / CGFloat(AppConstants.cellsInRow)
 
-        for column in .zero..<Constants.cellsInRow {
+        for column in .zero..<AppConstants.cellsInRow {
             var rowViews = [CellView]()
-            for row in 0..<Constants.cellsInRow {
+            for row in .zero..<AppConstants.cellsInRow {
                 let horizontalPosition = row == .zero
                 ? Constants.spacing
                 : CGFloat(row) * cellSize + Constants.spacing
@@ -176,30 +171,6 @@ private extension GameViewController {
         }
         view.setupFrame(frame)
         return view
-    }
-    
-    func animate(_ swipe: SwipeDirectionType) {
-//        var newFrame = cell.frame
-//        
-//        switch swipe {
-//            case .up:
-//                newFrame.origin.y = Constants.spacing
-//            case .down:
-//                newFrame.origin.y = gameBoard.frame.height - Constants.spacing - cell.frame.height
-//            case .left:
-//                newFrame.origin.x = Constants.spacing
-//            case .right:
-//                newFrame.origin.x = gameBoard.frame.width - Constants.spacing - cell.frame.width
-//        }
-//        
-//        UIView.animate(
-//            withDuration: 0.15,
-//            delay: 0,
-//            options: [.curveEaseOut],
-//            animations: {
-//                self.cell.frame = newFrame
-//            }
-//        )
     }
     
     func bindings() {

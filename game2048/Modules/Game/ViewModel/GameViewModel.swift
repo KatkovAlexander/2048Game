@@ -8,18 +8,9 @@
 import Combine
 
 final class GameViewModel {
-    
-    // MARK: Constants
-    
-    private enum Constants {
-        static let cellsInRow = 4
-    }
-    
     @Published var isGameOver = true
     @Published var yourScore: Int = .zero
     @Published var board = [[CellModel]]()
-    
-    
 }
 
 // MARK: Intrenal methods
@@ -28,8 +19,8 @@ extension GameViewModel {
     
     func startGame() {
         board = Array(
-            repeating: Array(repeating: CellModel(number: .zero), count: Constants.cellsInRow),
-            count: Constants.cellsInRow
+            repeating: Array(repeating: CellModel(number: .zero), count: AppConstants.cellsInRow),
+            count: AppConstants.cellsInRow
         )
         
         guard let updatedBoard = board.generateNumber()?.generateNumber()
@@ -104,7 +95,7 @@ private extension GameViewModel {
             yourScore += updatedRow.additionSum
             
             return updatedRow.updatedArray
-                .fillWithEmptyElements(Constants.cellsInRow)
+                .fillWithEmptyElements(AppConstants.cellsInRow)
                 .reverseElements()
         } else {
             let updatedRow = row
@@ -114,7 +105,7 @@ private extension GameViewModel {
             yourScore += updatedRow.additionSum
             
             return updatedRow.updatedArray
-                .fillWithEmptyElements(Constants.cellsInRow)
+                .fillWithEmptyElements(AppConstants.cellsInRow)
         }
     }
 
